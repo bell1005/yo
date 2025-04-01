@@ -23,7 +23,7 @@ function spawnYabai() {
   for (let i = 0; i < 20; i++) {
     const yabai = document.createElement('div');
     yabai.className = 'yabai-text';
-    yabai.textContent = "ヤバい‼️";
+    yabai.textContent = "偉い‼️";
     yabai.style.left = `${Math.random() * window.innerWidth}px`;
     yabai.style.top = `${Math.random() * window.innerHeight}px`;
     container.appendChild(yabai);
