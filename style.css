@@ -1,4 +1,96 @@
-/* ヤバい‼️を量産するエリア */
+/* 全体の設定 */
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(45deg, #ff0080, #ff8c00, #4cff00, #00d1ff, #8e44ad, #ff1a1a);
+  background-size: 600% 600%;
+  animation: gradientBG 8s ease infinite;
+  overflow: hidden;
+}
+
+/* 背景グラデーションのアニメーション */
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* 顔文字の配置 */
+.emoji-container {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 10rem;
+  text-align: center;
+  z-index: 10;
+}
+
+/* コンテンツの枠 */
+.container {
+  width: 80%;
+  max-width: 500px;
+  height: 35vh;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  backdrop-filter: blur(10px);
+  border: 5px solid #fff;
+}
+
+/* 質問の文字 */
+h1 {
+  font-size: calc(2rem + 2vw);
+  color: #ffffff;
+  font-weight: bold;
+  animation: textGlow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes textGlow {
+  0% { text-shadow: 0 0 10px red, 0 0 20px orange, 0 0 30px yellow; }
+  100% { text-shadow: 0 0 20px red, 0 0 40px orange, 0 0 60px yellow; }
+}
+
+/* ボタン */
+.button-container {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  width: 48%;
+  padding: 15px;
+  font-size: 18px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  background-color: #ff5733;
+  color: white;
+  transition: 0.3s ease, transform 0.2s;
+  box-shadow: 0 0 15px rgba(255, 87, 51, 0.7);
+}
+
+button:hover {
+  background-color: #ff2a00;
+  transform: scale(1.1);
+}
+
+button:nth-child(2) {
+  background-color: #ff1aff;
+}
+
+button:nth-child(2):hover {
+  background-color: #d500f9;
+}
+
+/* ヤバい‼️増殖エリア */
 #yabai-container {
   position: fixed;
   top: 0;
@@ -8,20 +100,37 @@
   pointer-events: none;
 }
 
-/* ヤバい‼️の基本スタイル */
+/* ヤバい‼️のアニメーション */
 .yabai-text {
   position: absolute;
   font-size: 2rem;
   font-weight: bold;
   color: red;
   text-shadow: 3px 3px 10px yellow, -3px -3px 10px blue;
-  transform: rotate(0deg);
-  animation: yabaiMove 3s linear infinite;
+  animation: yabaiMove 3s infinite;
 }
 
-/* ヤバい‼️がランダムに落ちたり飛んだり */
 @keyframes yabaiMove {
-  0% { transform: translateY(-10px) rotate(0deg); opacity: 1; }
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
   50% { transform: translateY(50vh) rotate(180deg); opacity: 0.7; }
   100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+}
+
+/* やったぁ‼️‼️が流れる */
+.scroll-text {
+  position: fixed;
+  bottom: 10%;
+  left: 0;
+  width: 100%;
+  font-size: 3rem;
+  font-weight: bold;
+  color: yellow;
+  text-shadow: 0 0 10px red, 0 0 20px orange;
+  white-space: nowrap;
+  animation: scrollText 5s linear infinite;
+}
+
+@keyframes scrollText {
+  from { transform: translateX(100%); }
+  to { transform: translateX(-100%); }
 }
