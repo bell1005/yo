@@ -1,13 +1,13 @@
 // 「はい」ボタン
 function approve() {
   showResult(["✨🎉 すごい！かっこいい！ 🎉✨", "🌟 めっちゃ偉い！！ 🌟", "💖 最高すぎる！！！ 💖"]);
-  spawnYabai();
+  spawnYabai("偉い‼️");
 }
 
 // 「いいえ」ボタン
 function deny() {
   showResult(["💥💀 ヤバすぎぃ！！！ 💀💥", "🔥🔥 もう無理ィ！！ 🔥🔥", "💣💣💣 ドカーン 💣💣💣"]);
-  spawnYabai();
+  spawnYabai("ヤバい‼️");
 }
 
 // 結果表示
@@ -17,13 +17,13 @@ function showResult(messages) {
   resultDiv.style.display = 'block';
 }
 
-// ヤバい‼️生成
-function spawnYabai() {
+// ヤバい‼️または偉い‼️を生成
+function spawnYabai(text) {
   const container = document.getElementById('yabai-container');
   for (let i = 0; i < 20; i++) {
     const yabai = document.createElement('div');
     yabai.className = 'yabai-text';
-    yabai.textContent = "偉い‼️";
+    yabai.textContent = text;
     yabai.style.left = `${Math.random() * window.innerWidth}px`;
     yabai.style.top = `${Math.random() * window.innerHeight}px`;
     container.appendChild(yabai);
