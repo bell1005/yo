@@ -1,21 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>激ヤバ承認欲求サイト</title>
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-  <div class="emoji-container">
-    🎉😆🎊
-  </div>
+  <div class="emoji-container">🎉😆🎊🔥💥</div>
+
   <div class="container">
-    <h1 id="question">承認要求を受け取りますか？</h1>
+    <h1 id="question">承認欲求を受け取りますか？</h1>
     <div class="button-container">
-      <button onclick="approve()">はい</button>
-      <button onclick="deny()">いいえ</button>
+      <button class="yes-button" onclick="approve()">はい</button>
+      <button class="no-button" onclick="deny()">いいえ</button>
     </div>
     <div id="result"></div>
   </div>
-  <div id="yay-text">やったぁ‼️‼️</div>
+
+  <div class="fireworks"></div>
+  <div class="scroll-text">やったぁ‼️‼️ やったぁ‼️‼️ やったぁ‼️‼️ やったぁ‼️‼️</div>
+
+  <!-- ヤバい‼️量産エリア -->
+  <div id="yabai-container"></div>
+
   <script src="script.js"></script>
 </body>
 </html>
