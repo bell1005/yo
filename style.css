@@ -1,169 +1,27 @@
-/* 全体の設定 */
-body {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background: linear-gradient(45deg, #ff0080, #ff8c00, #4cff00, #00d1ff, #8e44ad, #ff1a1a);
-  background-size: 300% 300%;
-  animation: gradientBG 3s linear infinite;
-  overflow: hidden;
-}
-
-/* 背景の高速グラデーション */
-@keyframes gradientBG {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-/* 絵文字の回転と左右揺れ */
-.emoji-container {
-  position: absolute;
-  top: 5%;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 12rem;
-  text-align: center;
-  animation: emojiWave 1.2s ease-in-out infinite alternate, emojiRotate 1s linear infinite;
-}
-
-@keyframes emojiWave {
-  0%, 100% { transform: translate(-50%, -10px); }
-  50% { transform: translate(-50%, 10px); }
-}
-
-@keyframes emojiRotate {
-  0% { transform: rotate(0deg) translate(-50%, 0); }
-  100% { transform: rotate(360deg) translate(-50%, 0); }
-}
-
-/* コンテンツの枠 */
-.container {
-  width: 80%;
-  max-width: 600px;
-  height: auto;
-  background: rgba(255, 255, 255, 0.9);
-  padding: 30px;
-  border-radius: 20px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-  text-align: center;
-  backdrop-filter: blur(20px);
-  border: 8px solid #ff5733;
-  animation: bounceBox 2s ease-in-out infinite;
-}
-
-/* 吹き出しがボヨンボヨン */
-@keyframes bounceBox {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.1); }
-}
-
-/* 質問の文字 */
-h1 {
-  font-size: calc(3rem + 2vw);
-  color: #ff1a1a;
-  font-weight: bold;
-  text-shadow: 0 0 20px #ff5733, 0 0 30px #ff1a1a;
-  animation: textGlow 0.5s ease-in-out infinite alternate;
-}
-
-@keyframes textGlow {
-  0% { text-shadow: 0 0 10px #ff0000, 0 0 20px #ff8c00; }
-  100% { text-shadow: 0 0 30px #ff1a1a, 0 0 40px #ff5733; }
-}
-
-/* ボタンのスタイル */
-.button-container {
-  margin-top: 30px;
-  display: flex;
-  justify-content: space-between;
-}
-
-button {
-  width: 48%;
-  padding: 20px 0;
-  font-size: 24px;
-  font-weight: bold;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  background: linear-gradient(45deg, #ff5733, #ff1a1a);
-  color: white;
-  transition: 0.2s ease, transform 0.1s ease-in-out;
-  box-shadow: 0 0 20px rgba(255, 87, 51, 0.9);
-}
-
-/* ボタンのクリック爆発 */
-button:active {
-  animation: explode 0.3s ease-out;
-}
-
-@keyframes explode {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.5); box-shadow: 0 0 50px #ff0000; }
-  100% { transform: scale(1); }
-}
-
-/* ボタンのホバーエフェクト */
-button:hover {
-  background: #ff2a00;
-  transform: scale(1.1);
-  box-shadow: 0 0 50px rgba(255, 87, 51, 1);
-}
-
-button:nth-child(2) {
-  background: linear-gradient(45deg, #ff1aff, #d500f9);
-}
-
-button:nth-child(2):hover {
-  background-color: #d500f9;
-  box-shadow: 0 0 50px rgba(255, 26, 255, 1);
-}
-
-/* 結果表示 */
-#result {
-  margin-top: 20px;
-  font-size: 28px;
-  font-weight: bold;
-  color: #ff0080;
-  display: none;
-  animation: pulse 1s ease-out infinite, colorWave 3s linear infinite;
-}
-
-/* 結果のバウンス */
-@keyframes pulse {
-  0% { transform: scale(1); opacity: 0.8; }
-  50% { transform: scale(1.3); opacity: 1; }
-  100% { transform: scale(1); opacity: 0.8; }
-}
-
-/* 結果の色変化 */
-@keyframes colorWave {
-  0% { color: #ff1a1a; }
-  25% { color: #ff5733; }
-  50% { color: #ff00ff; }
-  75% { color: #00d1ff; }
-  100% { color: #ff1a1a; }
-}
-
-/* 「やったぁ‼️‼️」の超横スクロール */
-#yay-text {
+/* ヤバい‼️を量産するエリア */
+#yabai-container {
   position: fixed;
-  top: 5%;
-  width: 100%;
-  font-size: 5rem;
-  font-weight: bold;
-  text-align: center;
-  color: #ff1a1a;
-  white-space: nowrap;
-  overflow: hidden;
-  animation: scrollText 8s linear infinite;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
 }
 
-@keyframes scrollText {
-  0% { transform: translateX(100%); }
-  100% { transform: translateX(-100%); }
+/* ヤバい‼️の基本スタイル */
+.yabai-text {
+  position: absolute;
+  font-size: 2rem;
+  font-weight: bold;
+  color: red;
+  text-shadow: 3px 3px 10px yellow, -3px -3px 10px blue;
+  transform: rotate(0deg);
+  animation: yabaiMove 3s linear infinite;
+}
+
+/* ヤバい‼️がランダムに落ちたり飛んだり */
+@keyframes yabaiMove {
+  0% { transform: translateY(-10px) rotate(0deg); opacity: 1; }
+  50% { transform: translateY(50vh) rotate(180deg); opacity: 0.7; }
+  100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
 }
